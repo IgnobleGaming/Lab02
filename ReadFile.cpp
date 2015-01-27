@@ -2,6 +2,8 @@
 #include <iostream>
 #include <string>
 
+
+//Regan's test comment 
 ReadFile* createReadFile(const char* file_name)
 {
    ReadFile* rf = new ReadFile;
