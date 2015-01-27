@@ -6,6 +6,7 @@
 #include <iostream>
 using namespace std;
 
+/** Constructor */
 String::String(const char* char_array)
 {
    sz = strlen(char_array);
