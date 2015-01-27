@@ -14,6 +14,7 @@ ReadFile* createReadFile(const char* file_name)
 }
 
 /* Destroys Reference */
+//test
 void destroyReadFile(ReadFile* rf)
 {
    close(rf);
