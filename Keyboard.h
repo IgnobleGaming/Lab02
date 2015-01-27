@@ -16,6 +16,7 @@ class Keyboard
 
 //pre: the string (character literal) that will prompt the user for input
 //post: the input read from the keyboard interpreted as an int is returned
+// testing comment
 int readInt(string prompt);
 int getValidatedInt(string prompt, int min, int max);
 
