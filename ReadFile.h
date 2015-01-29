@@ -5,18 +5,29 @@
 
 #include <fstream>
 using namespace std;
-
-struct ReadFile
+/**
+ *
+ *
+ *
+ **/
+class ReadFile
 {
-   ifstream input_file;
-   bool _eof;
-   bool closed;
-};
+	private:
+		ifstream input_file;
+		bool _eof;
+		bool closed;
 
-ReadFile* createReadFile(const char* file_name);
-void destroyReadFile(ReadFile* rf);
-String* readLine(ReadFile* rf);
-bool eof(ReadFile* rf);
-void close(ReadFile* rf);
-
+	public:
+		ReadFile();
+//! Constructor that accepts a character array signifying the name of the file
+		ReadFile(const char* file_name);
+//! The Destructor that removes the file given as a parameter		
+		void destroyReadFile();
+//! Parses the current line into a String and returns it to be read
+		String* readLine();
+//! Return true if reader is at the end of the file
+		bool eof();
+//! Function to close the file given in the parameter 
+		void close();
+}
 #endif
