@@ -1,49 +1,55 @@
 #include "ReadFile.h"
+
+#if !defined NULL
+#define NULL 0
+#endif
+
 #include <iostream>
 #include <string>
 
 
-//Regan's test comment 
-ReadFile* createReadFile(const char* file_name)
+/* Constructor
+   Args: file_name - Name of file to open */
+ReadFile::ReadFile(const char* file_name)
 {
-   ReadFile* rf = new ReadFile;
-
-   rf->input_file.open(file_name);
-   rf->closed = false;
-   rf->_eof = false;
-
-   return rf;
+   input_file.open(file_name);
+   closed = false;
+   eof    = false;
 }
 
-/* Destroys Reference */
-//test
-void destroyReadFile(ReadFile* rf)
+/*  Destructor  */
+ReadFile::~ReadFile()
 {
    close(rf);
    delete rf;
 }
 
-bool eof(ReadFile* rf)
+/* End of File 
+   Returns: True if at end of opened file  */
+bool ReadFile::eof()
 {
-   return rf->_eof;
+   return eof;
 }
 
-void close(ReadFile* rf)
+/* Close file */
+void ReadFile::close()
 {
-   if (!rf->closed)
+   if (!closed)
    {
-      rf->input_file.close();
-      rf->closed = true;
+      input_file.close();
+      closed = true;
    }
 }
 
-String* readLine(ReadFile* rf)
+/* Read current line 
+   Returns: Line caught by delimator*/
+String* ReadFile::readLine()
 {
-   if (rf->closed) return NULL;
-   if (rf->_eof) return NULL;
+   if (closed) return NULL;
+   if (_eof) return NULL;
 
    string text;
-   rf->_eof = !(getline(rf->input_file, text));
+   _eof = !(getline(input_file, text));
 
    String* str = new String((const char*) text.c_str());
    return str;
