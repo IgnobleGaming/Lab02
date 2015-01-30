@@ -1,9 +1,5 @@
 #include "ReadFile.h"
 
-#if !defined NULL
-#define NULL 0
-#endif
-
 #include <iostream>
 #include <string>
 
@@ -12,23 +8,22 @@
    Args: file_name - Name of file to open */
 ReadFile::ReadFile(const char* file_name)
 {
-   input_file.open(file_name);
-   closed = false;
-   eof    = false;
+    input_file.open(file_name);
+    closed = false;
+    _eof   = false;
 }
 
 /*  Destructor  */
 ReadFile::~ReadFile()
 {
-   close(rf);
-   delete rf;
+   close();
 }
 
-/* End of File 
+/* End of File
    Returns: True if at end of opened file  */
 bool ReadFile::eof()
 {
-   return eof;
+   return _eof;
 }
 
 /* Close file */
@@ -41,8 +36,8 @@ void ReadFile::close()
    }
 }
 
-/* Read current line 
-   Returns: Line caught by delimator*/
+/* Read current line
+   Returns: Line read until caught by delimator*/
 String* ReadFile::readLine()
 {
    if (closed) return NULL;

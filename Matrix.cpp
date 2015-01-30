@@ -20,7 +20,7 @@ Matrix::Matrix(int r, int c)
       cols = 1;
    }
 
-   int num_elements = rows*cols;
+   //int num_elements = rows*cols;
    mat = new double[rows*cols];
 
    //initialize the matrix to contain all zeroes (might not be square in general)
