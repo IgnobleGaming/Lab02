@@ -18,9 +18,9 @@ class ReadFile
 		bool closed;
 
 	public:
-//! Constructor that accepts a file name
+//! Constructor
 		ReadFile(const char* file_name);
-//! The Destructor that removes the file from memory
+//! The Destructor
         ~ReadFile();
 //! Parses the current line into a String and returns it to be read
 		String* readLine();
